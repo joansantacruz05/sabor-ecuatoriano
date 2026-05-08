@@ -73,8 +73,7 @@ var Modelo = Modelo || {};
     });
   };
 
-  // Contador secuencial de pedidos (#0001, #0002...)
-  // Ref: Sem 5 sec 5.2 (localStorage) + Sem 4 (padStart ES6+)
+  // Contador secuencial de pedidos #0001, #0002
   Modelo.obtenerSiguienteNumeroPedido = () => {
     const actual = parseInt(localStorage.getItem(LS_CONTADOR) || "0", 10);
     const siguiente = actual + 1;
@@ -158,8 +157,7 @@ var Modelo = Modelo || {};
     };
   };
 
-  // localStorage: persistencia de datos del formulario entre sesiones
-  // Ref: Sem 5 sec 5.2 (localStorage)
+  // localStorage: Mantiene guardados los datos del formulario
   Modelo.guardarFormulario = (datos) => {
     try {
       localStorage.setItem(LS_FORMULARIO, JSON.stringify(datos));
