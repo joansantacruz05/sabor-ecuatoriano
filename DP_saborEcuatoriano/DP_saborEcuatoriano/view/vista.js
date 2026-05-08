@@ -233,7 +233,7 @@ var Vista = Vista || {};
   Vista.abrirModalConfirmar = function () {
     var carrito = Modelo.obtenerCarrito();
     var totales = Modelo.calcularTotales();
-    var tipoEntrega = $("input[name='entrega']:checked").val() || "domicilio";
+    var tipoEntrega = $("input[name='entrega']:checked").val() || "local";
     var $resumen = $("#confirmar-resumen");
     $resumen.empty();
 
@@ -309,6 +309,34 @@ var Vista = Vista || {};
   Vista.cerrarModalExito = function () {
     var $modal = $("#modal-exito");
     var $overlay = $("#modal-exito-overlay");
+    $modal.removeClass("abierto");
+    $overlay.removeClass("visible");
+    $modal.attr("aria-hidden", "true");
+    setTimeout(function () {
+      $modal.prop("hidden", true);
+      $overlay.prop("hidden", true);
+    }, 350);
+    document.body.style.overflow = "";
+  };
+
+  // MODAL VACIAR CARRITO
+  Vista.abrirModalVaciar = function () {
+    var $modal = $("#modal-vaciar");
+    var $overlay = $("#modal-vaciar-overlay");
+    $modal.prop("hidden", false);
+    $overlay.prop("hidden", false);
+    setTimeout(function () {
+      $modal.addClass("abierto");
+      $overlay.addClass("visible");
+      $modal.attr("aria-hidden", "false");
+    }, 10);
+    document.body.style.overflow = "hidden";
+    $("#btn-cancelar-vaciar").focus();
+  };
+
+  Vista.cerrarModalVaciar = function () {
+    var $modal = $("#modal-vaciar");
+    var $overlay = $("#modal-vaciar-overlay");
     $modal.removeClass("abierto");
     $overlay.removeClass("visible");
     $modal.attr("aria-hidden", "true");
