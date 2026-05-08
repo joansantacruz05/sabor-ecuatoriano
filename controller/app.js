@@ -24,9 +24,13 @@ $(document).ready(function () {
     return "";
   }
 
-  if (getCookie("cookiesAceptadas") === "") {
-    $("#banner-cookies").prop("hidden", false);
-  }
+if (getCookie("cookiesAceptadas") === "") {
+  // Mostrar banner SOLO si no existe cookie
+  $("#banner-cookies").show();
+} else {
+  // Ocultar banner si ya aceptó o rechazó
+  $("#banner-cookies").hide();
+}
 
   $("#btn-aceptar-cookies").on("click", function () {
     setCookie("cookiesAceptadas", "si", 30);
