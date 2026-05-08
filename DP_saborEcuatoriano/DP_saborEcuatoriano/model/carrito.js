@@ -1,4 +1,4 @@
-// =====================================================
+/ =====================================================
 //  MODELO: Carrito + 4 mecanismos de persistencia
 //  Ref: Sem 5 sec 5.2 (localStorage, sessionStorage)
 //       Sem 5 sec 5.3 (IndexedDB, Cookies con SameSite)
