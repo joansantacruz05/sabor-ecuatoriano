@@ -110,11 +110,22 @@ $(document).ready(function () {
   $("#drawer-overlay").on("click", Vista.cerrarDrawer);
 
   $("#btn-vaciar").on("click", function () {
-    if (confirm("¿Seguro que quieres vaciar el carrito?")) {
-      Modelo.vaciarCarrito();
-      Vista.renderCarrito(actualizarCantidad, eliminarProducto);
-      Vista.renderResumenPedir();
-    }
+    Vista.abrirModalVaciar();
+  });
+
+  $("#btn-cancelar-vaciar").on("click", function () {
+    Vista.cerrarModalVaciar();
+  });
+
+  $("#modal-vaciar-overlay").on("click", function () {
+    Vista.cerrarModalVaciar();
+  });
+
+  $("#btn-confirmar-vaciar").on("click", function () {
+    Vista.cerrarModalVaciar();
+    Modelo.vaciarCarrito();
+    Vista.renderCarrito(actualizarCantidad, eliminarProducto);
+    Vista.renderResumenPedir();
   });
 
   // 9) Cerrar con Escape
