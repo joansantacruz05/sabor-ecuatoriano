@@ -5,47 +5,57 @@
 $(document).ready(function () {
 
 
+  // BANNER DE COOKIES
 
-  
-  // COOKIES - Banner
   function setCookie(nombre, valor, dias) {
-    var fecha = new Date();
-    fecha.setTime(fecha.getTime() + dias * 24 * 60 * 60 * 1000);
-    document.cookie = nombre + "=" + valor + ";expires=" + fecha.toUTCString() + ";path=/";
+    const fecha = new Date();
+    fecha.setTime(fecha.getTime() + (dias * 24 * 60 * 60 * 1000));
+
+    document.cookie =
+      nombre + "=" + valor +
+      "; expires=" + fecha.toUTCString() +
+      "; path=/";
   }
 
   function getCookie(nombre) {
-    var clave = nombre + "=";
-    var cookies = document.cookie.split(";");
-    for (var i = 0; i < cookies.length; i++) {
-      var c = cookies[i].trim();
-      if (c.indexOf(clave) === 0) return c.substring(clave.length);
+    const nombreEQ = nombre + "=";
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+      let c = cookies[i].trim();
+
+      if (c.indexOf(nombreEQ) === 0) {
+        return c.substring(nombreEQ.length, c.length);
+      }
     }
-    return "";
+
+    return null;
   }
 
-if (getCookie("cookiesAceptadas") === "") {
-  // Mostrar banner SOLO si no existe cookie
-  $("#banner-cookies").show();
-} else {
-  // Ocultar banner si ya aceptó o rechazó
-  $("#banner-cookies").hide();
-}
+  // Verificar si ya respondió
+  const respuestaCookies = getCookie("cookiesAceptadas");
 
+  if (!respuestaCookies) {
+    $("#banner-cookies").removeAttr("hidden").show();
+  } else {
+    $("#banner-cookies").hide();
+  }
+
+  // Aceptar cookies
   $("#btn-aceptar-cookies").on("click", function () {
+
     setCookie("cookiesAceptadas", "si", 30);
-    $("#banner-cookies").fadeOut(300, function () {
-      $(this).prop("hidden", true);
-    });
+
+    $("#banner-cookies").fadeOut(300);
   });
 
+  // Rechazar cookies
   $("#btn-rechazar-cookies").on("click", function () {
-    setCookie("cookiesAceptadas", "no", 30);
-    $("#banner-cookies").fadeOut(300, function () {
-      $(this).prop("hidden", true);
-    });
-  });
 
+    setCookie("cookiesAceptadas", "no", 30);
+
+    $("#banner-cookies").fadeOut(300);
+  });
   // 0) Header fijo arriba y se pone sombra al bajar
   $(window).on("scroll", function () {
     if ($(window).scrollTop() > 10) {
