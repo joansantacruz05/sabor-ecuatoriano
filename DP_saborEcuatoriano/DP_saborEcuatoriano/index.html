@@ -185,15 +185,7 @@
             <legend>¿Cómo quieres recibir tu pedido?</legend>
             <div class="radio-opciones">
               <label class="radio-card">
-                <input type="radio" name="entrega" value="domicilio" id="entrega-domicilio" checked aria-required="true" />
-                <div class="radio-card-contenido">
-                  <span class="radio-icono">🏠</span>
-                  <span class="radio-titulo">A domicilio</span>
-                  <span class="radio-desc">Te lo llevamos a casa</span>
-                </div>
-              </label>
-              <label class="radio-card">
-                <input type="radio" name="entrega" value="local" id="entrega-local" aria-required="true" />
+                <input type="radio" name="entrega" value="local" id="entrega-local" checked aria-required="true" />
                 <div class="radio-card-contenido">
                   <span class="radio-icono">🍽️</span>
                   <span class="radio-titulo">Recoger en local</span>
@@ -341,6 +333,24 @@
       <strong id="exito-numero">#0000</strong>
     </div>
     <button type="button" class="btn btn-dorado" id="btn-cerrar-exito">Aceptar</button>
+  </div>
+
+  <!-- MODAL VACIAR CARRITO -->
+  <div class="modal-overlay" id="modal-vaciar-overlay" hidden></div>
+  <div class="modal-confirmar modal-vaciar" id="modal-vaciar" role="dialog"
+       aria-labelledby="vaciar-titulo" aria-modal="true" aria-hidden="true" hidden>
+    <div class="modal-confirmar-icono">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="40" cy="40" r="36" fill="none" stroke="#c0392b" stroke-width="3"/>
+        <path d="M 28 28 L 52 52 M 52 28 L 28 52" fill="none" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h2 id="vaciar-titulo">¿Vaciar el carrito?</h2>
+    <p>Esta acción eliminará todos los productos que has agregado. ¿Estás seguro?</p>
+    <div class="modal-confirmar-acciones">
+      <button type="button" class="btn btn-secundario" id="btn-cancelar-vaciar">Cancelar</button>
+      <button type="button" class="btn btn-peligro" id="btn-confirmar-vaciar">Sí, vaciar</button>
+    </div>
   </div>
 
   <!-- SCRIPTS -->
