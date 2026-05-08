@@ -1,6 +1,5 @@
 // =====================================================
-//  CONTROLADOR: Orquestación con delegación de eventos
-//  Ref: Sem 6 sec 6.4 (Patrón MVC)
+//  CONTROLADOR: Controla los eventos de la página
 // =====================================================
 
 $(document).ready(function () {
