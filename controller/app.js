@@ -4,6 +4,19 @@
 
 $(document).ready(function () {
 
+
+  // NOTIFICACIÓN SOLO UNA VEZ
+  if (!localStorage.getItem("notificacionMostrada")) {
+
+    // AQUÍ VA TU NOTIFICACIÓN
+    alert("🍽️ Bienvenido a Sabor Ecuatoriano");
+
+    // Guarda que ya fue mostrada
+    localStorage.setItem("notificacionMostrada", "si");
+  }
+
+
+  
   // COOKIES - Banner
   function setCookie(nombre, valor, dias) {
     var fecha = new Date();
