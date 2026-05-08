@@ -1227,3 +1227,39 @@ h1, h2, h3, h4 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* BANNER COOKIES */
+#banner-cookies {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cafe-oscuro);
+  color: var(--beige-fondo);
+  padding: 16px 24px;
+  border-radius: var(--radio-md);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 2000;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  max-width: 90vw;
+}
+#banner-cookies p { margin: 0; font-size: 0.95rem; }
+.banner-cookies-acciones { display: flex; gap: 8px; }
+.banner-cookies-acciones button {
+  padding: 8px 18px;
+  border-radius: var(--radio-sm);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+#btn-aceptar-cookies {
+  background: var(--naranja);
+  color: #fff;
+}
+#btn-rechazar-cookies {
+  background: transparent;
+  color: var(--beige-fondo);
+  border: 1px solid var(--beige-fondo) !important;
+}
