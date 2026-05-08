@@ -1,7 +1,5 @@
 // =====================================================
 //  MODELO: Validación con expresiones regulares
-//  Ref: Sem 5 sec 5.2 (RegExp)
-//       Sem 5 sec 5.4 (ARIA: aria-invalid, aria-describedby)
 // =====================================================
 
 var Modelo = Modelo || {};
@@ -84,7 +82,6 @@ var Modelo = Modelo || {};
   };
 
   // Bloquea caracteres no-letra en el nombre
-  // Ref: Sem 5 (eventos del teclado) + Sem 4 (regex)
   Modelo.bloquearNoLetras = function (event) {
     var tecla = event.key;
     var teclasPermitidas = [
