@@ -651,7 +651,7 @@ h1, h2, h3, h4 {
   margin-top: 12px;
 }
 
-/* RADIO CARDS - TIPO DE ENTREGA */
+/* TIPO DE ENTREGA */
 .campo-radio-grupo {
   border: 0;
   padding: 0;
@@ -1124,7 +1124,7 @@ h1, h2, h3, h4 {
 
 .modal-exito .btn { width: 100%; justify-content: center; padding: 14px; }
 
-/* MODAL VACIAR CARRITO */
+/*VACIAR CARRITO */
 .modal-overlay#modal-vaciar-overlay { z-index: 1099; }
 .modal-overlay#modal-vaciar-overlay.visible {
   background: rgba(45, 24, 16, 0.75);
