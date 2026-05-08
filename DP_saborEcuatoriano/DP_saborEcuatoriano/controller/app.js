@@ -5,7 +5,7 @@
 
 $(document).ready(function () {
 
-  // 0) Header sticky con sombra al hacer scroll (Sem 5: eventos del DOM)
+  // 0) Header fijo arriba y se pone sombra al bajar
   $(window).on("scroll", function () {
     if ($(window).scrollTop() > 10) {
       $(".site-header").addClass("scrolled");
@@ -54,7 +54,7 @@ $(document).ready(function () {
     Vista.renderResumenPedir();
   }
 
-  // 4) DELEGACIÓN: botón "Añadir"
+  // 4) botón "Añadir"
   $(document).on("click", ".btn-anadir", function (e) {
     e.preventDefault();
     var $btn = $(this);
@@ -73,14 +73,14 @@ $(document).ready(function () {
     agregarProducto(producto, $tarjeta);
   });
 
-  // 5) DELEGACIÓN: filtros
+  // 5) filtros
   $(document).on("click", ".btn-filtro", function (e) {
     e.preventDefault();
     var cat = $(this).data("categoria");
     Vista.cambiarCategoria(cat);
   });
 
-  // 6) DELEGACIÓN: pestañas
+  // 6) pestañas
   $(document).on("click", ".enlace-tab", function (e) {
     e.preventDefault();
     var tab = $(this).data("tab");
@@ -91,7 +91,7 @@ $(document).ready(function () {
     }
   });
 
-  // 7) DELEGACIÓN: controles del carrito
+  // 7) controles del carrito
   $(document).on("click", "#drawer-body [data-accion]", function () {
     var id = parseInt($(this).data("id"), 10);
     var accion = $(this).data("accion");
@@ -172,11 +172,11 @@ $(document).ready(function () {
       Vista.abrirModalConfirmar();
     });
 
-    // Botón "Cancelar" del modal de confirmación
+    // Botón "Cancelar" de la ventana emergente de confirmación
     $("#btn-cancelar-confirmar").on("click", Vista.cerrarModalConfirmar);
     $("#modal-confirmar-overlay").on("click", Vista.cerrarModalConfirmar);
 
-    // Botón "Sí, confirmar" del modal de confirmación
+    // Botón "Sí, confirmar" de la ventana emergente de confirmación
     $("#btn-confirmar-pedido").on("click", function () {
       var pedido = {
         nombre: $("#nombre").val().trim(),
@@ -191,7 +191,7 @@ $(document).ready(function () {
         .then(function () {
           Vista.cerrarModalConfirmar();
 
-          // Genera número de pedido secuencial (#0001, #0002...)
+          // Genera número de pedido #0001, #0002
           var numeroPedido = Modelo.obtenerSiguienteNumeroPedido();
 
           // Espera a que cierre el de confirmación, luego abre el de éxito
