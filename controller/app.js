@@ -4,6 +4,41 @@
 
 $(document).ready(function () {
 
+  // COOKIES - Banner
+  function setCookie(nombre, valor, dias) {
+    var fecha = new Date();
+    fecha.setTime(fecha.getTime() + dias * 24 * 60 * 60 * 1000);
+    document.cookie = nombre + "=" + valor + ";expires=" + fecha.toUTCString() + ";path=/";
+  }
+
+  function getCookie(nombre) {
+    var clave = nombre + "=";
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+      var c = cookies[i].trim();
+      if (c.indexOf(clave) === 0) return c.substring(clave.length);
+    }
+    return "";
+  }
+
+  if (getCookie("cookiesAceptadas") === "") {
+    $("#banner-cookies").prop("hidden", false);
+  }
+
+  $("#btn-aceptar-cookies").on("click", function () {
+    setCookie("cookiesAceptadas", "si", 30);
+    $("#banner-cookies").fadeOut(300, function () {
+      $(this).prop("hidden", true);
+    });
+  });
+
+  $("#btn-rechazar-cookies").on("click", function () {
+    setCookie("cookiesAceptadas", "no", 30);
+    $("#banner-cookies").fadeOut(300, function () {
+      $(this).prop("hidden", true);
+    });
+  });
+
   // 0) Header fijo arriba y se pone sombra al bajar
   $(window).on("scroll", function () {
     if ($(window).scrollTop() > 10) {
