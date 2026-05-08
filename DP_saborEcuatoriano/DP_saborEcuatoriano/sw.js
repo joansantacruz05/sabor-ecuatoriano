@@ -1,6 +1,5 @@
 // =====================================================
-//  Service Worker para PWA
-//  Ref: Sem 5 sec 5.3 punto 7 (Progressive Web Apps)
+//  Configuración del Service Worker
 // =====================================================
 
 const CACHE = "sabor-ec-v1";
